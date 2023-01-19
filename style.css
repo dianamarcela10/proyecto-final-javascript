@@ -1,0 +1,47 @@
+body {
+    
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(59, 58, 58);
+    font-size: 15px;
+    font-style: oblique;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    border: 10px;
+
+
+    
+}
+
+main {
+
+    display: grid;
+    grid-template-columns: repeat(3, 30%) ;
+    grid-template-rows: auto;
+
+   
+
+
+}
+
+main h1 {
+    font-size: 1rem;
+    font-style: italic;
+    padding: 10px;
+    border: 20px;
+    color: black;
+    margin: 20px;
+
+    
+
+
+}
+
+main img {
+    width: 100px;
+    margin-top: auto;
+    padding: 20px;
+    border: 20px;
+
+}   
+
