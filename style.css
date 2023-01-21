@@ -1,5 +1,5 @@
 body {
-    
+
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(59, 58, 58);
     font-size: 15px;
@@ -8,40 +8,97 @@ body {
     text-align: center;
     padding: 20px;
     border: 10px;
+    max-width: 1200px;
 
 
-    
+
 }
 
 main {
 
     display: grid;
-    grid-template-columns: repeat(3, 30%) ;
+    grid-template-columns: repeat(5, 18%);
     grid-template-rows: auto;
+    row-gap: 1rem;
+    column-gap: 2rem;
+    place-content: center;
+}
 
-   
+.cardsElements {
+    background: #f5f5f5;
+    border-radius: 20px;
+    border: 2px solid #c3c6ce;
+    padding: 1 rem;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: space-between;
 
 
 }
 
-main h1 {
-    font-size: 1rem;
-    font-style: italic;
-    padding: 10px;
-    border: 20px;
-    color: black;
-    margin: 20px;
-
-    
-
-
-}
-
-main img {
+.cardsElements img {
     width: 100px;
-    margin-top: auto;
-    padding: 20px;
-    border: 20px;
+    height: 120px;
+    margin: auto;
+    overflow: hidden;
+}
 
-}   
+.cardsElements h1 {
+    font-size: 10px;
+    font-style: italic;
+    color: black;
+    padding: 0 2rem;
+
+}
+
+.cardsElements p {
+    text-align: center;
+    font-size: 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0 2rem;
+
+}
+
+.cardsElements button {
+    font-size: 20px;
+    font-size: small;
+    color: black;
+    border-radius: 10px;
+
+}
+
+.logo {
+    height: 100px;
+    color: darkcyan;
+    font-size: 60px;
+    font-style: oblique;
+    font-weight: 800;
+    font-family: 'Righteous', cursive;
+}
+
+nav {
+    font-size: 40px;
+    font-style: italic;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 20px;
+}
+
+nav button{
+ background-color:black;
+ color: rgb(198, 187, 238);
+ padding: 1rem 2rem;
+ border-radius: 5px;
+}
+
+nav button:hover{
+background-color: rgba(0, 0, 0, 0.336);
+border: none;
+}
 
