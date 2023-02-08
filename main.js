@@ -3,34 +3,35 @@ const botonFavorito = document.getElementsByClassName("cardsElements");
 const buttonCatalogo = document.getElementById("catalogo");
 const buttonFavoritos = document.getElementById("favoritos");
 
+
 buttonCatalogo.addEventListener("click", handleCatalogoClick);
-buttonFavoritos.addEventListener("click",handleFavoritosClick);
+buttonFavoritos.addEventListener("click", handleFavoritosClick);
 
 function handleCatalogoClick(e) {
   const idElement = e.target.id;
   const elementCatalogo = document.getElementById(`${idElement}-element`);
   const elementFavoritos = document.getElementById("catalogo-element");
-  elementCatalogo.style.display = "block";
-  elementFavoritos.style.display = "none";
 
+  if (elementCatalogo.style.display === "none") {
+    elementCatalogo.style.display = "block";
+  } else {
+    elementFavoritos.style.display = "none";
+  }
 }
 
 function handleFavoritosClick(e) {
   const idElement = e.target.id;
   const elementCatalogo = document.getElementById(`${idElement}-element`);
   const elementFavoritos = document.getElementById("favoritos-element");
-  elementCatalogo.style.display = "block";
-  elementFavoritos.style.display = "none";
-console.log(elementFavoritos);
+
+  if (elementCatalogo.style.display === "none") {
+    elementCatalogo.style.display = "block";
+  } else {
+    elementFavoritos.style.display = "none";
+  }
 }
 
-
-
-
-
-function mostrarPoductos(arrayProductos) {
-
-  const cards = document.getElementById("catalogo-element");
+function crearCards(elementMain, arrayProductos) {
 
   for (let iterator of arrayProductos) {
 
@@ -44,7 +45,7 @@ function mostrarPoductos(arrayProductos) {
                                     <button id="${iterator.id}" class="botonFavorito">favoritos</button>`
 
 
-    cards.appendChild(cardsElements)
+    elementMain.appendChild(cardsElements)
   }
   const botonFavorito = document.getElementsByClassName("botonFavorito");
   //console.log(botonFavorito);
@@ -55,6 +56,18 @@ function mostrarPoductos(arrayProductos) {
   }
 
 }
+function mostrarPoductos(arrayProductos) {
+  const cards = document.getElementById("catalogo-element");
+
+  crearCards(cards, arrayProductos);
+
+  const botonFavorito = document.getElementsByClassName("botonFavorito");
+  //console.log(botonFavorito);
+
+  for (let i = 0; i < botonFavorito.length; i++) {
+    botonFavorito[i].addEventListener("click", addProduct);
+  }
+}
 
 function addProduct(e) {
   const idProducto = e.target.id;
@@ -62,15 +75,20 @@ function addProduct(e) {
 }
 
 function mostrarFavoritos(favoritos) {
-  const arrayFavoritos = [];
+  const arrayFavoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
   arrayFavoritos.push(favoritos);
-  console.log(arrayFavoritos);
+ // console.log(arrayFavoritos);
   localStorage.setItem('favoritos', JSON.stringify(arrayFavoritos))
-  favoritos = JSON.parse(localStorage.getItem('favoritos'));
-  console.log('arrayFavoritos');
+
+  const $mainFavoritos = document.getElementById("favoritos-element");
+  
+  crearCards($mainFavoritos, arrayFavoritos);
+ 
+  console.log("arrayFavoritos");
+
+
+
 }
-
-
 
 async function fetchData() {
 
